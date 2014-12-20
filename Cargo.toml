@@ -3,3 +3,15 @@
 name = "cttw-rs"
 version = "0.0.1"
 authors = ["gifnksm <makoto.nksm+github@gmail.com>"]
+
+[lib]
+name = "cttw"
+crate-type = ["dylib"]
+
+[dependencies]
+time = "*"
+url = "*"
+curl = "*"
+
+[dependencies.rust-crypto]
+git = "https://github.com/DaGenix/rust-crypto"

@@ -1,8 +1,6 @@
 use std::io::{File, Open, Read, Write};
 use serialize::{json, Decodable};
 
-use oauth::Token;
-
 #[deriving(Show, Encodable, Decodable)]
 pub struct Config {
     pub consumer_key: String,
@@ -29,5 +27,5 @@ pub fn write(conf: &Config) {
         Ok(f) => f,
         Err(e) => panic!("{}", e)
     };
-    file.write_line(json::encode(conf).as_slice());
+    let _ = file.write_line(json::encode(conf).as_slice());
 }

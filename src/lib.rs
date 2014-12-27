@@ -4,7 +4,7 @@
 #![feature(plugin_registrar)]
 
 extern crate rustc;
-extern crate serialize;
+extern crate "rustc-serialize" as rustc_serialize;
 extern crate crypto;
 extern crate curl;
 extern crate time;

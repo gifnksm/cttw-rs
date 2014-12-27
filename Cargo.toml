@@ -12,6 +12,8 @@ crate-type = ["dylib"]
 time = "*"
 url = "*"
 curl = "*"
+log = "*"
+rustc-serialize = "*"
 
 [dependencies.rust-crypto]
 git = "https://github.com/DaGenix/rust-crypto"

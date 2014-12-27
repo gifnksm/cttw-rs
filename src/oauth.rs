@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::rand::{Rng, OsRng};
 use std::str::{mod, CowString};
-use serialize::base64::{mod, ToBase64};
+use rustc_serialize::base64::{mod, ToBase64};
 use crypto::hmac::Hmac;
 use crypto::mac::{Mac, MacResult};
 use crypto::sha1::Sha1;

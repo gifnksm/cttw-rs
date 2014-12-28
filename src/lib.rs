@@ -1,3 +1,7 @@
+#![warn(bad_style, missing_docs,
+        unused, unused_extern_crates, unused_import_braces,
+        unused_qualifications, unused_results, unused_typecasts)]
+
 #![crate_type = "dylib"]
 
 #![feature(phase)]
@@ -5,12 +9,8 @@
 
 extern crate rustc;
 extern crate "rustc-serialize" as rustc_serialize;
-extern crate crypto;
-extern crate curl;
-extern crate time;
-extern crate url;
-
-#[phase(plugin, link)] extern crate log;
+extern crate "oauth-client" as oauth;
+extern crate "twitter-api" as twitter;
 
 use std::io::stdio;
 use rustc::plugin::Registry;
@@ -18,8 +18,6 @@ use config::Config;
 use oauth::Token;
 
 mod config;
-mod twitter;
-mod oauth;
 
 fn console_input(prompt: &str) -> String {
     print!("{}\n\t", prompt);

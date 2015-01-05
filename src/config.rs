@@ -1,5 +1,6 @@
 use std::io::{File, Open, Read, Write};
-use rustc_serialize::{json, Decodable};
+use rustc_serialize::Decodable;
+use rustc_serialize::json::{self, Decoder, Json};
 
 #[deriving(Show, RustcEncodable, RustcDecodable)]
 pub struct Config {
@@ -17,8 +18,8 @@ pub fn read() -> Option<Config> {
         Ok(f) => f,
         Err(_) => return None
     };
-    let conf = json::from_reader(&mut file).unwrap();
-    Decodable::decode(&mut json::Decoder::new(conf)).ok()
+    let conf = Json::from_reader(&mut file).unwrap();
+    Decodable::decode(&mut Decoder::new(conf)).ok()
 }
 
 pub fn write(conf: &Config) {

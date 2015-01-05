@@ -4,6 +4,7 @@
 
 #![crate_type = "dylib"]
 
+#![feature(old_orphan_check)]
 #![feature(phase)]
 #![feature(plugin_registrar)]
 

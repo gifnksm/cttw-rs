@@ -2,7 +2,7 @@ use std::io::{File, Open, Read, Write};
 use rustc_serialize::Decodable;
 use rustc_serialize::json::{self, Decoder, Json};
 
-#[deriving(Show, RustcEncodable, RustcDecodable)]
+#[derive(Show, RustcEncodable, RustcDecodable)]
 pub struct Config {
     pub consumer_key: String,
     pub consumer_secret: String,
@@ -28,5 +28,5 @@ pub fn write(conf: &Config) {
         Ok(f) => f,
         Err(e) => panic!("{}", e)
     };
-    let _ = file.write_line(json::encode(conf).as_slice());
+    let _ = file.write_line(&json::encode(conf)[]);
 }

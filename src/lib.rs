@@ -4,14 +4,14 @@
 
 #![crate_type = "dylib"]
 
-#![feature(plugin_registrar)]
+#![feature(io, rustc_private, path, plugin_registrar)]
 
 extern crate rustc;
 extern crate "rustc-serialize" as rustc_serialize;
 extern crate "oauth-client" as oauth;
 extern crate "twitter-api" as twitter;
 
-use std::io::stdio;
+use std::old_io::stdio;
 use rustc::plugin::Registry;
 use config::Config;
 use oauth::Token;
@@ -37,7 +37,7 @@ pub fn plugin_registrar(_reg: &mut Registry) {
             println!("open the following url:");
             println!("\t{}", twitter::get_authorize_url(&request));
             let pin = console_input("input pin:");
-            let access = twitter::get_access_token(&consumer, &request, pin.as_slice());
+            let access = twitter::get_access_token(&consumer, &request, &pin[]);
 
             let c = Config {
                 consumer_key: consumer.key.to_string(),

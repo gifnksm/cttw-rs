@@ -1,8 +1,8 @@
-use std::io::{File, Open, Read, Write};
+use std::old_io::{File, Open, Read, Write};
 use rustc_serialize::Decodable;
 use rustc_serialize::json::{self, Decoder, Json};
 
-#[derive(Show, RustcEncodable, RustcDecodable)]
+#[derive(Debug, RustcEncodable, RustcDecodable)]
 pub struct Config {
     pub consumer_key: String,
     pub consumer_secret: String,

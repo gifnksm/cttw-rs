@@ -28,5 +28,5 @@ pub fn write(conf: &Config) {
         Ok(f) => f,
         Err(e) => panic!("{}", e)
     };
-    let _ = file.write_line(&json::encode(conf).unwrap()[]);
+    let _ = file.write_line(&json::encode(conf).unwrap());
 }

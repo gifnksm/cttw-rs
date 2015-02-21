@@ -1,6 +1,5 @@
 #![feature(plugin)]
-
-#[plugin] extern crate cttw;
+#![plugin(cttw)]
 
 fn main() {
     println!("Hello, run-time world!");

@@ -1,4 +1,6 @@
-use std::old_io::{File, Open, Read, Write};
+use std::io::Write;
+use std::fs::{File, OpenOptions};
+use std::path::Path;
 use rustc_serialize::Decodable;
 use rustc_serialize::json::{self, Decoder, Json};
 
@@ -14,7 +16,7 @@ const PATH: &'static str = "./.cttw.conf";
 
 pub fn read() -> Option<Config> {
     let path = Path::new(PATH);
-    let mut file = match File::open_mode(&path, Open, Read) {
+    let mut file = match File::open(&path) {
         Ok(f) => f,
         Err(_) => return None
     };
@@ -24,9 +26,9 @@ pub fn read() -> Option<Config> {
 
 pub fn write(conf: &Config) {
     let path = Path::new(PATH);
-    let mut file = match File::open_mode(&path, Open, Write) {
+    let mut file = match OpenOptions::new().write(true).open(&path) {
         Ok(f) => f,
         Err(e) => panic!("{}", e)
     };
-    let _ = file.write_line(&json::encode(conf).unwrap());
+    let _ = write!(&mut file, "{}\n", &json::encode(conf).unwrap());
 }

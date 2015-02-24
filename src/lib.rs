@@ -4,7 +4,7 @@
 
 #![crate_type = "dylib"]
 
-#![feature(old_io, rustc_private, old_path, plugin_registrar)]
+#![feature(io, path, fs, old_io, rustc_private, plugin_registrar)]
 
 extern crate rustc;
 extern crate "rustc-serialize" as rustc_serialize;

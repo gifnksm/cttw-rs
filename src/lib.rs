@@ -4,14 +4,14 @@
 
 #![crate_type = "dylib"]
 
-#![feature(io, path, fs, old_io, rustc_private, plugin_registrar)]
+#![feature(rustc_private, plugin_registrar)]
 
 extern crate rustc;
 extern crate "rustc-serialize" as rustc_serialize;
 extern crate "oauth-client" as oauth;
 extern crate "twitter-api" as twitter;
 
-use std::old_io::stdio;
+use std::io;
 use rustc::plugin::Registry;
 use config::Config;
 use oauth::Token;
@@ -20,7 +20,8 @@ mod config;
 
 fn console_input(prompt: &str) -> String {
     print!("{}\n\t", prompt);
-    let line = stdio::stdin().read_line().unwrap();
+    let mut line = String::new();
+    let _ = io::stdin().read_line(&mut line).unwrap();
     line.trim().to_string()
 }
 

@@ -7,9 +7,9 @@
 #![feature(rustc_private, plugin_registrar)]
 
 extern crate rustc;
-extern crate "rustc-serialize" as rustc_serialize;
-extern crate "oauth-client" as oauth;
-extern crate "twitter-api" as twitter;
+extern crate rustc_serialize;
+extern crate oauth_client as oauth;
+extern crate twitter_api as twitter;
 
 use std::io;
 use rustc::plugin::Registry;

@@ -1,8 +1,11 @@
 [package]
-
 name = "cttw"
-version = "0.0.7"
+version = "0.0.8"
 authors = ["gifnksm <makoto.nksm+github@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/gifnksm/cttw-rs"
+description = "Compile time twittering"
 
 [lib]
 name = "cttw"

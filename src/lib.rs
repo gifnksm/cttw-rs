@@ -6,13 +6,13 @@
 
 #![feature(rustc_private, plugin_registrar)]
 
-extern crate rustc;
+extern crate rustc_plugin;
 extern crate rustc_serialize;
 extern crate oauth_client as oauth;
 extern crate twitter_api as twitter;
 
 use std::io;
-use rustc::plugin::Registry;
+use rustc_plugin::Registry;
 use config::Config;
 use oauth::Token;
 

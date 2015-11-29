@@ -9,9 +9,7 @@ name = "cttw"
 crate-type = ["dylib"]
 
 [dependencies]
+rust-crypto = "*"
 rustc-serialize = "*"
 twitter-api = "*"
 oauth-client = "*"
-
-[dependencies.rust-crypto]
-git = "https://github.com/DaGenix/rust-crypto"

@@ -30,7 +30,7 @@ pub fn plugin_registrar(_reg: &mut Registry) {
     let conf = match config::read() {
         Some(c) => c,
         None => {
-            let consumer_key    = console_input("input your consumer key:");
+            let consumer_key = console_input("input your consumer key:");
             let consumer_secret = console_input("input your consumer secret:");
             let consumer = Token::new(consumer_key, consumer_secret);
 
@@ -44,7 +44,7 @@ pub fn plugin_registrar(_reg: &mut Registry) {
                 consumer_key: consumer.key.to_string(),
                 consumer_secret: consumer.secret.to_string(),
                 access_key: access.key.to_string(),
-                access_secret: access.secret.to_string()
+                access_secret: access.secret.to_string(),
             };
             config::write(&c);
             c
@@ -54,5 +54,7 @@ pub fn plugin_registrar(_reg: &mut Registry) {
     let consumer = Token::new(conf.consumer_key, conf.consumer_secret);
     let access = Token::new(conf.access_key, conf.access_secret);
 
-    twitter::tweet(&consumer, &access, "あなたとRust, 今すぐコンパイル");
+    twitter::tweet(&consumer,
+                   &access,
+                   "あなたとRust, 今すぐコンパイル");
 }

@@ -26,7 +26,7 @@ pub fn read() -> Option<Config> {
 
 pub fn write(conf: &Config) {
     let path = Path::new(PATH);
-    let mut file = match OpenOptions::new().write(true).open(&path) {
+    let mut file = match OpenOptions::new().write(true).create(true).open(&path) {
         Ok(f) => f,
         Err(e) => panic!("{}", e),
     };

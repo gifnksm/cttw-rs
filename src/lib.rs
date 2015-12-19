@@ -54,7 +54,7 @@ pub fn plugin_registrar(_reg: &mut Registry) {
     let consumer = Token::new(conf.consumer_key, conf.consumer_secret);
     let access = Token::new(conf.access_key, conf.access_secret);
 
-    twitter::tweet(&consumer,
-                   &access,
-                   "あなたとRust, 今すぐコンパイル");
+    twitter::update_status(&consumer,
+                           &access,
+                           "あなたとRust, 今すぐコンパイル");
 }

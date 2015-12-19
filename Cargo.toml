@@ -12,7 +12,7 @@ name = "cttw"
 crate-type = ["dylib"]
 
 [dependencies]
-rust-crypto = "*"
-rustc-serialize = "*"
-twitter-api = "*"
-oauth-client = "*"
+rust-crypto = "0.2"
+rustc-serialize = "0.3"
+twitter-api = "0.1"
+oauth-client = "0.0.13"

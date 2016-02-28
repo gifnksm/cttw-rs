@@ -14,5 +14,5 @@ crate-type = ["dylib"]
 [dependencies]
 rust-crypto = "0.2"
 rustc-serialize = "0.3"
-twitter-api = "0.1"
-oauth-client = "0.0.13"
+twitter-api = "0.2"
+oauth-client = "0.1"

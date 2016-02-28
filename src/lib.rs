@@ -34,11 +34,11 @@ pub fn plugin_registrar(_reg: &mut Registry) {
             let consumer_secret = console_input("input your consumer secret:");
             let consumer = Token::new(consumer_key, consumer_secret);
 
-            let request = twitter::get_request_token(&consumer);
+            let request = twitter::get_request_token(&consumer).unwrap();
             println!("open the following url:");
             println!("\t{}", twitter::get_authorize_url(&request));
             let pin = console_input("input pin:");
-            let access = twitter::get_access_token(&consumer, &request, &pin);
+            let access = twitter::get_access_token(&consumer, &request, &pin).unwrap();
 
             let c = Config {
                 consumer_key: consumer.key.to_string(),
@@ -56,5 +56,6 @@ pub fn plugin_registrar(_reg: &mut Registry) {
 
     twitter::update_status(&consumer,
                            &access,
-                           "あなたとRust, 今すぐコンパイル");
+                           "あなたとRust, 今すぐコンパイル")
+        .unwrap();
 }
